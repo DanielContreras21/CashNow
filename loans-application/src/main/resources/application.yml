@@ -1,0 +1,55 @@
+springdoc:
+  swagger-ui:
+    path: /loans-application.html
+
+spring:
+  application:
+    name: loans-application
+  main:
+    banner-mode: off
+  datasource:
+
+    url: jdbc:postgresql://20.121.214.190:5434/loanapplicationdb
+    username: postgres
+    password: Aforo2552023
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+server:
+  error:
+    include-stacktrace: never
+  port: 8083
+logging:
+  level:
+    root: INFO
+    web: DEBUG
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      #defaultZone: https://s10-14-ft-eurekaserver.azurewebsites.net/eureka/
+      defaultZone: http://localhost:8761/eureka/
+
+resilience4j.retry:
+  instances:
+    userRetry:
+      max-attempts: 5
+      wait-duration: 2000ms
+      retry-exceptions:
+        - java.io.IOException
+        - java.lang.RuntimeException
