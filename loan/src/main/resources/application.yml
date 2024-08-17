@@ -1,0 +1,69 @@
+---
+springdoc:
+  swagger-ui:
+    path: /loans/index.html
+
+springfox:
+  documentation:
+    swagger-ui:
+      path: /loans
+
+spring:
+  application:
+    name: loan-service
+  main:
+    #Desactivo el Banner de Spring Boot de consola
+    banner-mode: off
+  datasource:
+    url: jdbc:postgresql://localhost:5434/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  kafka:
+    template:
+      default-topic: loan-application-topic
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: message-loan-application-consumer
+
+server:
+  error:
+    include-stacktrace: never
+  port: 8084
+logging:
+  level:
+    root: INFO
+    web: DEBUG
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+resilience4j.retry:
+  instances:
+    userRetry:
+      max-attempts: 5
+      wait-duration: 2000ms
+      retry-exceptions:
+        - java.io.IOException
+        - java.lang.RuntimeException
+#
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: https://s10-14-ft-eurekaserver.azurewebsites.net/eureka
+...
