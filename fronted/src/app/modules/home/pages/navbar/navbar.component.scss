@@ -1,0 +1,54 @@
+.dark{
+    background-color:  #000000;
+
+}
+
+.lt{
+    background-color: #000000;
+}
+
+.violeta{
+    background: rgba(83, 90, 162, 1);
+
+}
+
+
+/* Estilos para el botón de mostrar/ocultar */
+#toggleBtn {
+
+  background-color: #0e1317;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para el menú desplegable */
+#menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+#menu a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+}
+
+/* Estilo cuando se muestra el menú */
+#menu:not(.hidden) {
+  max-height: 200px; /* Altura máxima del menú desplegado */
+}
+.desplegable:hover{
+  background-color: #000000;
+  color: #fff;
+  border-radius: 5px;
+}
+.color-hover:hover{
+
+  color:#535AA2;
+}

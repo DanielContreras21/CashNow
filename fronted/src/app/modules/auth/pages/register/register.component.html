@@ -1,0 +1,89 @@
+<app-navbar></app-navbar>
+<div class="card">
+  <div class="flex justify-center">
+    <div class="mt-16 sm:mx-auto sm:w-full sm:max-w-md">
+      <div *ngIf="registerSuccess.length > 0"
+        class="fixed top-10 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded shadow-md"
+        role="alert">
+          <strong class="font-bold mr-3">{{registerSuccess}}!</strong>
+          <span class="absolute top-0 bottom-0 right-0 px-3 py-2">
+            <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <title>Close</title>
+              <path d="M14.348 14.849a1 1 0 01-1.414 1.414L10 11.414l-2.93 2.93a1 1 0 11-1.414-1.414l2.93-2.93-2.93-2.93a1 1 0 111.414-1.414l2.93 2.93 2.93-2.93a1 1 0 111.414 1.414l-2.93 2.93 2.93 2.93z"/>
+            </svg>
+          </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flex items-center justify-center h-screen">
+
+  <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-2xl">
+    <h2 class="text-2xl font-semibold mb-4 text-center">Crear mi cuenta</h2>
+
+    <a href="#" class="a-google mt-2 text-gray-900 py-2 px-4 rounded-lg mb-4 inline-flex items-center w-full text-center mr-2 border border-gray-300 p-1 rounded justify-center">
+      <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-vector-graphic-pixabay-15.png" width="25px" alt="google logo vector graphic pixabay" class="mr-2">
+      <span class="align-middle">Ingresa con Google</span>
+    </a>
+    <div class="flex justify-center mt-2 mb-4">
+       <svg width="326" height="19" viewBox="0 0 326 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line y1="9" x2="125" y2="9" stroke="black"/>
+      <path d="M167.078 8.95312V9.67188C167.078 10.526 166.971 11.2917 166.758 11.9688C166.544 12.6458 166.237 13.2214 165.836 13.6953C165.435 14.1693 164.953 14.5312 164.391 14.7812C163.833 15.0312 163.208 15.1562 162.516 15.1562C161.844 15.1562 161.227 15.0312 160.664 14.7812C160.107 14.5312 159.622 14.1693 159.211 13.6953C158.805 13.2214 158.49 12.6458 158.266 11.9688C158.042 11.2917 157.93 10.526 157.93 9.67188V8.95312C157.93 8.09896 158.039 7.33594 158.258 6.66406C158.482 5.98698 158.797 5.41146 159.203 4.9375C159.609 4.45833 160.091 4.09375 160.648 3.84375C161.211 3.59375 161.828 3.46875 162.5 3.46875C163.193 3.46875 163.818 3.59375 164.375 3.84375C164.938 4.09375 165.419 4.45833 165.82 4.9375C166.227 5.41146 166.536 5.98698 166.75 6.66406C166.969 7.33594 167.078 8.09896 167.078 8.95312ZM165.586 9.67188V8.9375C165.586 8.26042 165.516 7.66146 165.375 7.14062C165.24 6.61979 165.039 6.18229 164.773 5.82812C164.508 5.47396 164.182 5.20573 163.797 5.02344C163.417 4.84115 162.984 4.75 162.5 4.75C162.031 4.75 161.607 4.84115 161.227 5.02344C160.852 5.20573 160.529 5.47396 160.258 5.82812C159.992 6.18229 159.786 6.61979 159.641 7.14062C159.495 7.66146 159.422 8.26042 159.422 8.9375V9.67188C159.422 10.3542 159.495 10.9583 159.641 11.4844C159.786 12.0052 159.995 12.4453 160.266 12.8047C160.542 13.1589 160.867 13.4271 161.242 13.6094C161.622 13.7917 162.047 13.8828 162.516 13.8828C163.005 13.8828 163.44 13.7917 163.82 13.6094C164.201 13.4271 164.521 13.1589 164.781 12.8047C165.047 12.4453 165.247 12.0052 165.383 11.4844C165.518 10.9583 165.586 10.3542 165.586 9.67188Z" fill="black"/>
+      <line x1="201" y1="9" x2="326" y2="9" stroke="black"/>
+      </svg>
+    </div>
+
+
+    <form  [formGroup]="registroForm" >
+
+      <div class="flex mb-4">
+        <div class="w-1/2 mr-2">
+          <label for="name" class="block text-sm font-medium leading-6 text-gray-900 border-color"></label>
+          <input type="text" name="name" id="name" formControlName="name" placeholder="Nombre" class="mb-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2">
+          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+            class="text-red-600 text-sm mb-2">
+            <div  *ngIf="name.errors?.['required']">
+              <span>El nombre es requerido.</span>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/2 ml-2">
+          <label for="lastname" class="block text-sm font-medium leading-6 text-gray-900 border-color"></label>
+          <input type="text" name="lastname" id="lastname" formControlName="lastname" autocomplete="apellido"placeholder="Apellido" class="mb-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2">
+          <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)"
+            class="text-red-600 text-sm mb-2">
+            <div  *ngIf="lastname.errors?.['required']">
+              <span>El apellido es requerido.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+        <label for="email" class="block text-sm font-medium leading-6 text-gray-900 border-color">Email</label>
+        <input placeholder="Correo electrónico" id="email"  name="email" formControlName="email" type="email" autocomplete="email" class="mb-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 ">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="text-red-600 text-sm mb-2">
+          <div *ngIf="email.errors?.['required']">
+              <span>El email es requerido.</span>
+          </div>
+          <div *ngIf="email.errors?.['email']">
+              El email debe tener un formato válido.
+          </div>
+        </div>
+        <label for="password" class="block text-sm font-medium leading-6 text-gray-900 border-color">Contraseña</label>
+        <input type="password" id="password" name="password" formControlName="password" autocomplete="password" placeholder="Contraseña" class="mb-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 ">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="text-red-600 mt-1 text-sm mb-2">
+          <div  *ngIf="password.errors?.['required']">
+              <span>El password es requerido.</span>
+          </div>
+        </div>
+        <div class="text-red-600 mt-1 text-sm mb-2" *ngIf="password.invalid && password.hasError('minlength')">
+            <span>La contraseña debe tener al menos 8 caracteres.</span>
+        </div>
+        <button type="submit"(click)="registrarUsuario()" class="mb-2 flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 boton ">Registrarse</button>
+        <span class="">¿ Ya estás registrado ? </span><a class="font-semibold" routerLink="/auth/login"> Inicia sesión aquí</a>
+    </form>
+
+  </div>
+</div>
+<app-footer></app-footer>

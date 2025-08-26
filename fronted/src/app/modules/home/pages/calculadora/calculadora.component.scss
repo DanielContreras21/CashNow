@@ -1,0 +1,70 @@
+.title1 {
+    //styleName: H1 poppins 42px;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 63px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.title2 {
+    //styleName: H1 poppins 42px;
+    width: 113px;
+    height: 39px;
+    top: 263px;
+    left: 112px;
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 39px;
+    letter-spacing: 0em;
+    text-align: left;
+
+
+
+}
+
+mat-slider {
+    width: 300px;
+}
+
+
+
+
+.custom-toolbar {
+    /* Cambia el color de fondo a teal */
+
+    width: 326px;
+    top: 369px;
+    left: 118px;
+    border: 6px;
+
+}
+
+::ng-deep .mat-slider-thumb {
+    background-color:  #535AA2!important;
+
+}
+
+ 
+
+//  ::ng-deep  .mat-slider-horizontal .mat-slider-ticks .mat-slider-horizontal .mat-slider-ticks-container {
+//     height: 300px !important;
+//     width: 200px !important;
+//     background-color:  #535AA2!important;
+
+// }
+
+::ng-deep .mat-slider-ticks .mat-slider-horizontal .mat-slider-ticks {
+    height: 30px!important;
+    width: 500% !important;
+}
+
+::ng-deep .mat-slider.mat-accent .mat-slider-track-fill,
+.mat-slider.mat-accent .mat-slider-thumb,
+.mat-slider.mat-accent .mat-slider-thumb-label {
+    background-color: #535AA2 !important;
+    
+}
+

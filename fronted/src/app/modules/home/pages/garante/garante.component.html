@@ -1,0 +1,319 @@
+<app-navbar></app-navbar>
+<div class="container mx-auto mt-2">
+
+  <div class="flex flex-col lg:flex-row h-screen">
+    <!-- Dashboard -->
+    <div class="lg:w-1/5  p-4 mt-2 content-evenly">
+      <a routerLink="/home/general" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Datos generales</a>
+
+      <a routerLink="/home/informeLa" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Información laboral</a>
+
+
+      <a routerLink="/home/garante" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Garante</a>
+
+      <a routerLink="/home/confirm" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Confirmación</a>
+
+    </div>
+    <!-- Fin Dashboard -->
+    <!-- Content Form -->
+    <div class="space-y-12 lg:w-4/5 p-4 space-y-4">
+      <form [formGroup]="guarantorForm" class="lg:w-4/5 p-4">
+        <!-- <p>Requiere garante</p> -->
+        <!-- <div class="mb-3">
+          <label class="mr-2 inline-block pl-[0.15rem] hover:cursor-pointer" for="flexSwitchCheckDefault">
+            Requiere garante</label>
+            <input
+            class="mr-2 mt-[0.1rem] h-3.5 w-8 appearance-none rounded-[0.4375rem] bg-neutral-300 before:pointer-events-none before:absolute before:h-3.5 before:w-3.5 before:rounded-full before:bg-transparent before:content-[''] after:absolute after:z-[2] after:-mt-[0.1875rem] after:h-5 after:w-5 after:rounded-full after:border-none after:bg-neutral-100 after:shadow-[0_0px_3px_0_rgb(0_0_0_/_7%),_0_2px_2px_0_rgb(0_0_0_/_4%)] after:transition-[background-color_0.2s,transform_0.2s] after:content-[''] checked:bg-primary checked:after:absolute checked:after:z-[2] checked:after:-mt-[3px] checked:after:ml-[1.0625rem] checked:after:h-5 checked:after:w-5 checked:after:rounded-full checked:after:border-none checked:after:bg-primary checked:after:shadow-[0_3px_1px_-2px_rgba(0,0,0,0.2),_0_2px_2px_0_rgba(0,0,0,0.14),_0_1px_5px_0_rgba(0,0,0,0.12)] checked:after:transition-[background-color_0.2s,transform_0.2s] checked:after:content-[''] hover:cursor-pointer focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[3px_-1px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-5 focus:after:w-5 focus:after:rounded-full focus:after:content-[''] checked:focus:border-primary checked:focus:bg-primary checked:focus:before:ml-[1.0625rem] checked:focus:before:scale-100 checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:bg-neutral-600 dark:after:bg-neutral-400 dark:checked:bg-primary dark:checked:after:bg-primary dark:focus:before:shadow-[3px_-1px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[3px_-1px_0px_13px_#3b71ca]"
+            type="checkbox"
+            role="switch"
+            id="flexSwitchChecked"
+            checked />
+
+        </div> -->
+
+        <h1>Garante</h1>
+        <!-- <hr class=" hr-estyles"> -->
+        <hr class="my-2 h-1 border-t-0 bg-neutral-100 opacity-100 dark:opacity-100" />
+        <div class="">
+          <div class="border-b border-gray-900/10 pb-12">
+            <div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <!-- Primera fila -->
+              <div class="sm:col-span-2">
+                <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Nombre <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="name" type="text" name="name" id="name"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('name')?.invalid && (guarantorForm.get('name')?.dirty || guarantorForm.get('name')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('name')?.hasError('required')">
+                      <span >El nombre es requerido.</span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="lastname" class="block text-sm font-medium leading-6 text-gray-900">Apellido <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="lastname" type="text" name="lastname" id="last-name"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('lastname')?.invalid && (guarantorForm.get('lastname')?.dirty || guarantorForm.get('lastname')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('lastname')?.hasError('required')">
+                      <span >El apellido es requerido.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Segunda fila -->
+
+              <div class="sm:col-span-2 sm:col-start-1">
+                <label for="identificationType" class="block text-sm font-medium leading-6 text-gray-900">Identificación <span class="text-red-600">*</span></label>
+                <div class="mt-2 ">
+                  <select formControlName="identificationType" id="identificationType" name="identificationType" class="p-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                    <option value="DNI">DNI</option>
+                    <option value="PASSPORT" >PASSPORT</option>
+                  </select>
+                  <div *ngIf="guarantorForm.get('identificationType')?.invalid && (guarantorForm.get('identificationType')?.dirty || guarantorForm.get('identificationType')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('identificationType')?.hasError('required')">
+                      <span >El tipo es requerido.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sm:col-span-4">
+                <label for="identification" class="block text-sm font-medium leading-6 text-gray-900">Nro de identificación  <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="identification" type="text" name="identification" id="identification" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('identification')?.invalid && (guarantorForm.get('identification')?.dirty || guarantorForm.get('identification')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('identification')?.hasError('required')">
+                      <span >La identificacion es requerido.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Tercera fila -->
+              <div class="sm:col-span-2 sm:col-start-1">
+                <label for="state" class="block text-sm font-medium leading-6 text-gray-900">Provincia  <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="state" type="text" name="state" id="state" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('state')?.invalid && (guarantorForm.get('state')?.dirty || guarantorForm.get('state')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('state')?.hasError('required')">
+                      <span >La provincia es requerida.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Ciudad  <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="city" type="text" name="city" id="city"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('city')?.invalid && (guarantorForm.get('city')?.dirty || guarantorForm.get('city')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('city')?.hasError('required')">
+                      <span >La ciudad es requerida.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="zipcode" class="block text-sm font-medium leading-6 text-gray-900">Codigo postal  <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="zipcode" type="text" name="zipcode" id="zipcode" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('zipcode')?.invalid && (guarantorForm.get('zipcode')?.dirty || guarantorForm.get('zipcode')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('zipcode')?.hasError('required')">
+                      <span >El codigo postal es requerido.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Cuarta fila-->
+              <div class="sm:col-span-2 sm:col-start-1">
+                <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Direccion  <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="address" type="text" name="address" id="address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('address')?.invalid && (guarantorForm.get('address')?.dirty || guarantorForm.get('address')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('address')?.hasError('required')">
+                      <span >La direccion es requerida.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="apartment" class="block text-sm font-medium leading-6 text-gray-900">Edificio/Dpto  <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="apartment" type="text" name="apartment" id="apartment" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('apartment')?.invalid && (guarantorForm.get('apartment')?.dirty || guarantorForm.get('apartment')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('apartment')?.hasError('required')">
+                      <span >El apartamento es requerida.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Teléfono   <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="phone" type="text" name="phone" id="phone" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('phone')?.invalid && (guarantorForm.get('phone')?.dirty || guarantorForm.get('phone')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('phone')?.hasError('required')">
+                      <span >El telefono es requerido.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               <!-- Quinta fila -->
+              <div class="sm:col-span-2 sm:col-start-1">
+                <label for="company" class="block text-sm font-medium leading-6 text-gray-900">Nombre de la empresa   <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="company" type="text" name="company" id="company"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('company')?.invalid && (guarantorForm.get('company')?.dirty || guarantorForm.get('company')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('company')?.hasError('required')">
+                      <span >La compania es requerida.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="businessCategory" class="block text-sm font-medium leading-6 text-gray-900">Rubro de empresa  <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="businessCategory" type="text" name="businessCategory" id="businessCategory"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('businessCategory')?.invalid && (guarantorForm.get('businessCategory')?.dirty || guarantorForm.get('businessCategory')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('businessCategory')?.hasError('required')">
+                      <span >La categoria es requerida.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="occupation" class="block text-sm font-medium leading-6 text-gray-900">Ocupación    <span class="text-red-600">*</span></label>
+                <div class="mt-2">
+                  <input formControlName="occupation" type="text" name="occupation" id="occupation" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <div *ngIf="guarantorForm.get('occupation')?.invalid && (guarantorForm.get('occupation')?.dirty || guarantorForm.get('occupation')?.touched)" class="text-red-600 text-sm mb-2">
+                    <div class="mt-1" *ngIf="guarantorForm.get('occupation')?.hasError('required')">
+                      <span >La ocupacion es requerida.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <!-- Sexta fila -->
+                <div class="sm:col-span-2">
+                  <label for="timeInCompany" class="block text-sm font-medium leading-6 text-gray-900">Tiempo en la empresa  <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="timeInCompany" type="number" name="timeInCompany" id="timeInCompany" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="guarantorForm.get('timeInCompany')?.invalid && (guarantorForm.get('timeInCompany')?.dirty || guarantorForm.get('timeInCompany')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="guarantorForm.get('timeInCompany')?.hasError('required')">
+                        <span >El tiempo es requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="monthlyIncome" class="block text-sm font-medium leading-6 text-gray-900">Ingreso mensual  <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="monthlyIncome" type="number" name="monthlyIncome" id="monthlyIncome" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="guarantorForm.get('monthlyIncome')?.invalid && (guarantorForm.get('monthlyIncome')?.dirty || guarantorForm.get('monthlyIncome')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="guarantorForm.get('monthlyIncome')?.hasError('required')">
+                        <span >El ingreso mensual es requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Septima fila -->
+                <div class="sm:col-span-2 sm:col-start-1">
+                  <label for="companyState" class="block text-sm font-medium leading-6 text-gray-900">Provincia    <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="companyState" type="text" name="companyState" id="companyState" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="guarantorForm.get('companyState')?.invalid && (guarantorForm.get('companyState')?.dirty || guarantorForm.get('companyState')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="guarantorForm.get('companyState')?.hasError('required')">
+                        <span >La provincia es requerida.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="companyCity" class="block text-sm font-medium leading-6 text-gray-900">Ciudad   <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="companyCity" type="text" name="companyCity" id="companyCity"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="guarantorForm.get('companyCity')?.invalid && (guarantorForm.get('companyCity')?.dirty || guarantorForm.get('companyCity')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="guarantorForm.get('companyCity')?.hasError('required')">
+                        <span >La ciudad es requerida.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="companyZipcode" class="block text-sm font-medium leading-6 text-gray-900">Código postal     <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="companyZipcode" type="text" name="companyZipcode" id="companyZipcode" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="guarantorForm.get('companyZipcode')?.invalid && (guarantorForm.get('companyZipcode')?.dirty || guarantorForm.get('companyZipcode')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="guarantorForm.get('companyZipcode')?.hasError('required')">
+                        <span >El codigo postal es requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 <!-- Octava fila -->
+                 <div class="sm:col-span-2 sm:col-start-1">
+                  <label for="companyAddress" class="block text-sm font-medium leading-6 text-gray-900">Calle    <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="companyAddress" type="text" name="companyAddress" id="companyAddress" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="guarantorForm.get('companyAddress')?.invalid && (guarantorForm.get('companyAddress')?.dirty || guarantorForm.get('companyAddress')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="guarantorForm.get('companyAddress')?.hasError('required')">
+                        <span >La calle es requerida.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="companyApartment" class="block text-sm font-medium leading-6 text-gray-900">Edificio/Dpto   <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="companyApartment" type="text" name="companyApartment" id="companyApartment"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="guarantorForm.get('companyApartment')?.invalid && (guarantorForm.get('companyApartment')?.dirty || guarantorForm.get('companyApartment')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="guarantorForm.get('companyApartment')?.hasError('required')">
+                        <span >El apartamento es requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="companyPhone" class="block text-sm font-medium leading-6 text-gray-900">Teléfono      <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="companyPhone" type="text" name="companyPhone" id="companyPhone"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="guarantorForm.get('companyPhone')?.invalid && (guarantorForm.get('companyPhone')?.dirty || guarantorForm.get('companyPhone')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="guarantorForm.get('companyPhone')?.hasError('required')">
+                        <span >El telefono es requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="flex flex-row justify-between">
+          <div class="mt-6 flex items-center justify-start gap-x-6">
+
+              <button type="submit" class="mb-6 bg-blue-500 text-white p-2 mt-2  text-white violeta font-poppins hover:bg-violet-700 focus:ring-4 focus:outline-none focus:ring-violet-700 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Atras  <i class="fa-solid fa-arrow-left fa-fade"></i></button>
+
+          </div>
+
+            <div class="mt-6 flex items-center justify-end gap-x-6">
+
+                <button (click)="createGuarantor()"  class="mb-6 bg-blue-500 text-white p-2 mt-2  text-white violeta font-poppins hover:bg-violet-700 focus:ring-4 focus:outline-none focus:ring-violet-700 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0" [disabled]="!guarantorForm.valid" type="submit" [ngClass]="{ 'disabled-button': !guarantorForm.valid }" >Continuar  <i class="fa-solid fa-arrow-right fa-fade"></i></button>
+
+            </div>
+        </div>
+      </form>
+    </div>
+    <!-- Fin Content Form -->
+  </div>
+</div>

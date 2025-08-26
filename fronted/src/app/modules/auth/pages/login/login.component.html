@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+<div class="card">
+  <div class="flex justify-center">
+    <div class="mt-16 sm:mx-auto sm:w-full sm:max-w-md">
+      <div *ngIf="loginSuccess.length > 0"
+        class="fixed top-10 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded shadow-md"
+        role="alert">
+          <strong class="font-bold mr-3">{{loginSuccess}}!</strong>
+          <span class="absolute top-0 bottom-0 right-0 px-3 py-2">
+            <svg class="fill-current h-4 w-4 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <title>Close</title>
+              <path d="M14.348 14.849a1 1 0 01-1.414 1.414L10 11.414l-2.93 2.93a1 1 0 11-1.414-1.414l2.93-2.93-2.93-2.93a1 1 0 111.414-1.414l2.93 2.93 2.93-2.93a1 1 0 111.414 1.414l-2.93 2.93 2.93 2.93z"/>
+            </svg>
+          </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="card">
+
+  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+
+      <form [formGroup]="loginForm" class="space-y-6 bg-white max-w-md w-full p-6 bg-white rounded-lg shadow-2xl px-8 pt-6 pb-8 mb-4 width-form" >
+        <div *ngIf="showAlert"
+            class="fixed top-10 left-1/2 transform -translate-x-1/2 bg-red-100 border border-red-400 text-red-700  px-6 py-4 rounded shadow-md"
+            role="alert">
+          <strong class="font-bold mr-3">{{ loginError }}</strong>
+          <span class="absolute top-0 bottom-0 right-0 px-3 py-2">
+            <svg class="fill-current h-4 w-4 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <title>Close</title>
+              <path
+                d="M14.348 14.849a1 1 0 01-1.414 1.414L10 11.414l-2.93 2.93a1 1 0 11-1.414-1.414l2.93-2.93-2.93-2.93a1 1 0 111.414-1.414l2.93 2.93 2.93-2.93a1 1 0 111.414 1.414l-2.93 2.93 2.93 2.93z" />
+            </svg>
+          </span>
+        </div>
+
+        <!--<span class="text-red-600">{{loginError}}</span>-->
+       <!--<div *ngIf="loginSuccess.length > 0"
+            class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+            role="alert">
+              <strong class="font-bold">{{loginSuccess}}!</strong>
+
+              <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+              <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <title>Close</title>
+              <path
+                d="M14.348 14.849a1 1 0 01-1.414 1.414L10 11.414l-2.93 2.93a1 1 0 11-1.414-1.414l2.93-2.93-2.93-2.93a1 1 0 111.414-1.414l2.93 2.93 2.93-2.93a1 1 0 111.414 1.414l-2.93 2.93 2.93 2.93z" />
+              </svg>
+              </span>
+
+        </div>-->
+        <!--<span class="text-emerald-300 justify-center">{{loginSuccess}}</span>-->
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+          <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+          <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Inicia sesión en su cuenta</h2>
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium leading-6 text-gray-900 border-color">Email </label>
+          <div class="mt-1">
+            <input formControlName="email" id="email" placeholder="Ingrese su email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="text-red-600 mt-1 text-sm">
+                <div *ngIf="email.errors?.['required']">
+                    <span>El email es requerido.</span>
+                </div>
+                <div *ngIf="email.errors?.['email']">
+                    El email debe tener un formato válido.
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between">
+            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Contraseña</label>
+
+          </div>
+          <div class="mt-2">
+            <input formControlName="password" id="password" placeholder="Ingrese su password" name="password" type="password" autocomplete="current-password" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 px-2 ">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="text-red-600 mt-1 text-sm">
+                <div  *ngIf="password.errors?.['required']">
+                    <span>El password es requerido.</span>
+                </div>
+            </div>
+            <div class="text-red-600 mt-1 text-sm mb-2" *ngIf="password.invalid && password.hasError('minlength')">
+              <span>La contraseña debe tener al menos 8 caracteres.</span>
+            </div>
+          </div>
+          <div class="text-sm mt-2">
+            <a routerLink="auth/login" class="font-semibold ">¿Has olvidado tu contraseña?</a>
+            <a class="" routerLink="/auth/register"> Registrate aquí</a>
+          </div>
+        </div>
+
+        <div>
+          <button type="submit" (click)="login()"  class=" flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 boton" >Iniciar sesión</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+
+
+

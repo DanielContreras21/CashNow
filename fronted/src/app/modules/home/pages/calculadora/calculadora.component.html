@@ -1,0 +1,96 @@
+<app-navbar></app-navbar>
+<header class="flex flex-col justify-center items-center pt-4 h-100">
+
+    <div class="flex flex-col justify-center items-center">
+    <h1 class="font-poppins font-bold title1">Calcula tu préstamo aquí</h1>
+
+    <div class="flex flex-row w-11/12 h-screen bg-no-repeat bg-cover rounded-lg " style="background-image: url('./../../../../../assets/img/calcu.png')">
+      <form [formGroup]="formulario" class="pt-6" (ngSubmit)="onSubmit(valueButton,selectedvalue)">
+        <div class="w-screen h-100 flex flex-col justify-center items-start cabeza">
+          <div class="ml-24 w-2/5 h-2/3 mb-20">
+            <div>
+              <label for="" class="title2">Necesito</label>
+              <input type="text" class="ml-6 rounded-md w-44 h-16 text-center" [value]=" selectedvalue " />
+            </div>
+            <div class="flex flex-col">
+              <mat-slider [min]="100000" [max]="5000000" [step]="1" [(ngModel)]="selectedvalue"
+                (input)="   onSubmit(valueButton,selectedvalue)" (input)="onSliderChange($event)">
+                <input matSliderThumb color="primary" />
+              </mat-slider>
+              <label for="" class="title2">Plazo</label>
+              <div class="flex flex-row flex space-x-4 pt-6">
+                <button [class.selected]="plazoSeleccionado === 3" (click)="seleccionarPlazo(3)"
+                  class="bg-white rounded-lg border border-gray-200 font-semibold font-poppins hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+                  (click)=" valueButton = 3">
+                  3 cuotas
+                </button>
+                <button
+                  class="bg-white rounded-lg border border-gray-200 font-semibold font-poppins hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+                  (click)=" valueButton = 6">
+                  6 cuotas
+                </button>
+                <button
+                  class="bg-white rounded-lg border border-gray-200 font-semibold font-poppins hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0"
+                  (click)=" valueButton = 12">
+                  12 cuotas
+                </button>
+              </div>
+              <div class="flex flex-col space-y-4 pt-4">
+                <div class="flex flex-row">
+                  <label for="">Cantidad solicitada: </label>
+                  <label for="" class=""> {{ selectedvalue }}</label>
+                </div>
+                <div class="flex flex-row">
+                  <label for="">Interés: </label> <label for=""> {{tasa}}</label>
+                </div>
+
+                <div>
+                  <label for="">Cuota mensual:</label>
+                  <label for=""> {{resultado}}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    </div>
+
+
+</header>
+
+<article class="flex justify-center pt-2 h-96 mt-4">
+  <div class="w-11/12 h-5/6 flex flex-col pt-2 items-center">
+    <h1 class="font-poppins text-[rgba(0, 0, 0, 1)] title1">
+      ¿Por qué elegirnos?
+    </h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 place-content-stretch w-5/6 content-center">
+      <div
+        class="w-full h-60 flex flex-col justify-center items-center bg-white border-2 rounded-md border-gray-50 drop-shadow-2xl">
+        <i class="fa-solid fa-bolt" style="color: #787eba; font-size: 40px"></i>
+        <h1 class="text-lg font-poppins bolt font-bold">Es rápido</h1>
+        <p class="font-poppins text-lg font-normal leading-6 tracking-normal text-center">
+          Un asesor se comunicará contigo
+        </p>
+      </div>
+      <div
+        class="w-full h-60 flex flex-col justify-center items-center bg-white border-2 rounded-md border-gray-50 drop-shadow-2xl">
+        <i class="fa-solid fa-shield" style="color: #787eba; font-size: 40px"></i>
+        <h1 class="text-lg font-poppins bolt font-bold">Es seguro</h1>
+        <p class="font-poppins text-lg font-normal leading-6 tracking-normal text-center">
+          Tus datos están protegidos
+        </p>
+      </div>
+      <div
+        class="w-full h-60 flex flex-col justify-center items-center bg-white border-2 rounded-md border-gray-50 drop-shadow-2xl">
+        <i class="fa-solid fa-globe" style="color: #787eba; font-size: 40px"></i>
+        <h1 class="text-lg font-poppins bolt font-bold">Es 100% online</h1>
+        <p class="font-poppins text-lg font-normal leading-6 tracking-normal text-center">
+          Pídelo desde tu hogar
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<app-footer></app-footer>

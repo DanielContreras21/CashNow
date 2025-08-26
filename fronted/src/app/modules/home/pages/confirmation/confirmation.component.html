@@ -1,0 +1,101 @@
+<app-navbar></app-navbar>
+<div class="container mx-auto mt-2">
+  <div class="lg:flex h-screen">
+    <!-- Dashboard -->
+    <div class="lg:w-1/5 p-4 mt-2 content-evenly ">
+      <a routerLink="/home/general" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Datos generales</a>
+      <a routerLink="/home/informeLa" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Información laboral</a>
+      <a routerLink="/home/garante" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Garante</a>
+      <a routerLink="/home/confirm" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Confirmación</a>
+    </div>
+    <!-- Fin Dashboard -->
+
+    <div class="lg:w-4/5 p-4 mt-4"  >
+      <h1 class="">Tu Solicitud</h1>
+      <!-- <hr class="hr-estyles"> -->
+
+      <div div class="flex flex-wrap">
+        <div class="w-full lg:w-2/2 p-4">
+
+          <div class="flex flex-col w-full ">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-10 w-full">
+
+              <div class="inline-block w-full sm:px-6 lg:px-10 " >
+                <div class="overflow-hidden w-full">
+                  <hr class="my-2 h-1 border-t-0 bg-neutral-100 opacity-100 dark:opacity-100" />
+                  <table class=" w-full text-left text-sm font-light">
+                    <thead class="border-b font-medium dark:border-neutral-500">
+                      <tr>
+                        <th scope="col" class="px-8 py-4">Nro de solicitud</th>
+                        <th scope="col" class="px-8 py-4">Monto solicitado</th>
+                        <th scope="col" class="px-8 py-4">Estado</th>
+                        <th scope="col" class="px-8 py-4">Fecha</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="confirmResponse">
+                      <tr class="border-b dark:border-neutral-500">
+                        <td class="whitespace-nowrap px-8 py-4">{{confirmResponse.loanApplicationNumber}}</td>
+                        <td class="whitespace-nowrap px-8 py-4">{{confirmResponse.requestedAmount}}</td>
+                        <td class="whitespace-nowrap px-8 py-4">{{confirmResponse.status}}</td>
+                        <td class="whitespace-nowrap px-8 py-4 font-medium">{{confirmResponse.createAt}}</td>
+
+                      </tr>
+
+                    </tbody>
+
+                  </table>
+                  <div class="mt-6 flex items-center justify-end gap-x-6">
+
+                    <!-- <button type="submit" class=" bg-blue-500 text-white pl-1 pr-1 mt-2 violeta">Mis solicitudes</button> -->
+                    <button type="submit" class=" bg-blue-500 text-white pl-1 pr-1 mt-2 violeta" (click)="confirm()">Confirmar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <h1>Tus Datos</h1>
+      <!-- <hr class="hr-estyles"> -->
+
+      <div div class="flex flex-wrap">
+        <div class="w-full lg:w-2/2 p-4">
+
+          <div class="flex flex-col w-full mb-8">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-10 w-full">
+              <div class="inline-block w-full sm:px-6 lg:px-10 ">
+                <div class="overflow-hidden w-full">
+                  <hr class="my-2 h-1 border-t-0 bg-neutral-100 opacity-100 dark:opacity-100" />
+                  <table class="w-full text-left text-sm font-light">
+                    <thead class="border-b font-medium dark:border-neutral-500">
+                      <tr>
+                        <th scope="col" class="px-8 py-4">Nombre y Apellido</th>
+                        <th scope="col" class="px-8 py-4">Customer Id</th>
+                        <th scope="col" class="px-8 py-4">Nro de Identificación</th>
+                        <th scope="col" class="px-8 py-4">Teléfono</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="confirmResponse">
+                      <tr class="border-b dark:border-neutral-500">
+                        <td class="whitespace-nowrap px-8 py-4">{{confirmResponse.name}} {{confirmResponse.lastname}}</td>
+                        <td class="whitespace-nowrap px-8 py-4">{{confirmResponse.customersUuid}}</td>
+                        <td class="whitespace-nowrap px-8 py-4">{{confirmResponse.identification}}</td>
+                        <td class="whitespace-nowrap px-8 py-4 font-medium">{{confirmResponse.phone}}</td>
+
+                      </tr>
+
+                    </tbody>
+
+                  </table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

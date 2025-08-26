@@ -1,0 +1,84 @@
+.hr-estyles{
+  background: #9C9C9CBD;
+  border-top: 2px solid #ccc;
+  margin-top: 14px;
+  margin-bottom: 14px;
+
+}
+.styleButton{
+  width: 149px;
+  height: 46px;
+
+  border-radius: 8px;
+  background: #535AA2;
+  //styleName: button 18px medium;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  letter-spacing: 0em;
+  text-align: center;
+
+
+}
+.styleButton:hover{
+  background-color: rgb(69, 16, 201);
+}
+.labelStyles{
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.violeta{
+  background: rgba(83, 90, 162, 1);
+  width: 123px;
+  height: 46px;
+  top: 536px;
+  left: 320px;
+  border-radius: 8px;
+
+
+}
+h1{
+  font-family: Poppins;
+font-size: 15px;
+font-weight: 400;
+line-height: 23px;
+letter-spacing: 0em;
+text-align: left;
+color: #1E1E1E;
+width: 85px;
+height: 23px;
+
+}
+/* Clase para el botón desactivado */
+.disabled-button {
+  background-color: gray; /* Cambia el color de fondo a gris o el color que desees */
+  color: white; /* Cambia el color del texto a blanco o el color que desees */
+  cursor: not-allowed; /* Cambia el cursor del mouse a 'no permitido' */
+}
+/* Estilos personalizados para el cuadro de diálogo de Swal */
+.my-custom-alert {
+  background-color: #fff; /* Color de fondo */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espacio interno */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  text-align: center; /* Alineación del texto */
+  font-family: 'Arial', sans-serif; /* Fuente del texto */
+}
+
+.my-custom-alert .swal-title {
+  font-size: 24px; /* Tamaño de la fuente para el título */
+  color: #4CAF50; /* Color del título */
+}
+
+.my-custom-alert .swal-html-container {
+  font-size: 18px; /* Tamaño de la fuente para el contenido */
+  color: #333; /* Color del contenido */
+}
+
+

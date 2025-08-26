@@ -1,0 +1,73 @@
+
+<div class="flex justify-center  pt-4">
+
+    <nav class="dark w-11/12 border-dark dark:bg-gray-900 rounded-lg    ">
+        <div class="max-w-screen-xl  flex flex-wrap items-center justify-start mx-auto p-4">
+        <a href="" class="flex items-center ">
+            <img src="./../../../../../assets/img/CASHNOW.png" class="h-6 mr-3" alt="" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"></span>
+        </a>
+        <div class="flex md:order-2  ml-auto">
+
+          <div *ngIf="isLoggedInUser()">
+            <!-- <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 violeta hover:violeta text-white font-bold py-2 px-4 text-white rounded-lg mr-3"><i class="fa-regular fa-user fa-fade"></i>
+               {{rol}}
+            </button> -->
+              <div class="relative inline-block text-left">
+                <div class=" justify-items-center">
+                  <button type="button" id="toggleBtn" class=" justify-center px-2 "
+                    (click)="toggleMenu()" [attr.aria-expanded]="isMenuOpen.toString()" aria-haspopup="true">
+                    <i class="fa-regular fa-circle-user fa-2xl  color-hover" ></i>
+
+                  </button>
+                </div>
+
+                <div #menu class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  role="menu" aria-orientation="vertical" aria-labelledby="menu-button" [style.display]="isMenuOpen ? 'block' : 'none'">
+                  <div class="py-0" role="none">
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm desplegable" role="menuitem" tabindex="-1">Mi Perfil</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm desplegable" role="menuitem" tabindex="-1">Mis Datos</a>
+                    <a href="#" class="text-gray-700 block px-4 py-2 text-sm desplegable" role="menuitem" tabindex="-1">Mis Solicitudes</a>
+                    <!-- <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1">Cerrar sesión</a> -->
+                    <form   role="none">
+                      <button type="submit"(click)="SignOff()" class="text-gray-700 block w-full px-4 py-2 text-left text-sm desplegable" role="menuitem" tabindex="-1">Cerrar sesión</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+                <!-- <button class="violeta hover:violeta text-white font-bold py-2 px-4 rounded-full" (click)="SignOff()">
+                  <i class="fa-solid fa-right-to-bracket fa-fade"></i> salir
+                </button> -->
+
+
+          </div>
+          <div *ngIf="!isLoggedInUser()">
+              <button routerLink="/auth/login" type="button" class="text-white violeta font-poppins hover:bg-violet-700 focus:ring-4 focus:outline-none focus:ring-violet-700 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Iniciar sesión</button>
+          </div>
+
+            <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 " aria-controls="navbar-cta" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+              </svg>
+            </button>
+        </div>
+        <div class=" ml-10	 items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+          <ul class="lt  flex flex-col font-medium font-poppins p-4 md:p-0 mt-4 border  rounded-lg bg-dark md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <a href="#" class="ml-6 block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-0 md:hover:text-blue-300" aria-current="page">Inicio</a>
+            </li>
+            
+            <li>
+              <a href="/home/nosotros" class="ml-6 block py-2 pl-3 pr-4 text-white rounded  md:hover:bg-transparent md:hover:text-blue-300 md:p-0" >Nosotros</a>
+            </li>
+            <li>
+              <a href="#" class="ml-6 block py-2 pl-3 pr-4 text-white rounded  md:hover:bg-transparent md:hover:text-blue-300 md:p-0 ">Contacto</a>
+            </li>
+
+
+          </ul>
+        </div>
+        </div>
+      </nav>
+</div>

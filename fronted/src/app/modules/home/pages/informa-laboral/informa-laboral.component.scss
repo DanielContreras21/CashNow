@@ -1,0 +1,28 @@
+.violeta{
+    background: rgba(83, 90, 162, 1);
+    width: 123px;
+    height: 46px;
+    top: 536px;
+    left: 320px;
+    border-radius: 8px;
+
+
+}
+h1{
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 0em;
+  display: inline;
+  color: #1E1E1E;
+  width: 85px;
+  height: 23px;
+
+}
+/* Clase para el botón desactivado */
+.disabled-button {
+  background-color: gray; /* Cambia el color de fondo a gris o el color que desees */
+  color: white; /* Cambia el color del texto a blanco o el color que desees */
+  cursor: not-allowed; /* Cambia el cursor del mouse a 'no permitido' */
+}

@@ -1,0 +1,185 @@
+<app-navbar></app-navbar>
+
+<div class="container mx-auto">
+    <div class="flex flex-col lg:flex-row h-screen">
+      <div class="lg:w-1/5  p-2 mt-6 ml-2 content-evenly">
+        <!-- Links -->
+        <a routerLink="/home/general" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Datos generales</a>
+        <a routerLink="/home/informeLa" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Información laboral</a>
+        <a routerLink="/home/garante" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Garante</a>
+        <a routerLink="/home/confirm" class="block link-item hover:bg-indigo-500 hover:text-white px-2 py-1 rounded transition-colors">Confirmación</a>
+
+        <!-- ... Agrega más links aquí ... -->
+      </div>
+      <div class="space-y-12 lg:w-4/5 p-4 space-y-4">
+
+        <form [formGroup]="jobInformationForm" class="lg:w-4/5 p-4">
+          <h1>Información laboral</h1>
+        <!-- <hr class=" hr-estyles"> -->
+        <hr class="my-2 h-1 border-t-0 bg-neutral-100 opacity-100 dark:opacity-100" />
+          <div class="">
+
+
+            <div class=" pb-12">
+              <div class=" grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+                <!-- primera fila -->
+                <div class="sm:col-span-2 sm:col-start-1">
+                  <label for="company" class="block text-sm font-medium leading-6 text-gray-900">Nombre de la empresa  <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="company" type="text" name="company" id="company" autocomplete="address-level2" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('company')?.invalid && (jobInformationForm.get('company')?.dirty || jobInformationForm.get('company')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('company')?.hasError('required')">
+                        <span >La empresa es requerida.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="businessCategory" class="block text-sm font-medium leading-6 text-gray-900">Rubro de empresa  <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="businessCategory" type="text" name="businessCategory" id="businessCategory"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('businessCategory')?.invalid && (jobInformationForm.get('businessCategory')?.dirty || jobInformationForm.get('businessCategory')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('businessCategory')?.hasError('required')">
+                        <span >El rubro es  requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="occupation" class="block text-sm font-medium leading-6 text-gray-900">Ocupación  <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="occupation" type="text" name="occupation" id="occupation" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('occupation')?.invalid && (jobInformationForm.get('occupation')?.dirty || jobInformationForm.get('occupation')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('occupation')?.hasError('required')">
+                        <span >La ocupacion es  requerida.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Segunda fila -->
+                <div class="sm:col-span-2">
+                  <label for="yearsInCompany" class="block text-sm font-medium leading-6 text-gray-900">Tiempo en la empresa  <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="yearsInCompany" type="number" name="yearsInCompany" id="yearsInCompany" autocomplete="address-level1" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('yearsInCompany')?.invalid && (jobInformationForm.get('yearsInCompany')?.dirty || jobInformationForm.get('yearsInCompany')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('yearsInCompany')?.hasError('required')">
+                        <span >El tiempo en años es  requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="monthlyIncome" class="block text-sm font-medium leading-6 text-gray-900">Ingreso mensual  <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="monthlyIncome" type="number" name="monthlyIncome" id="monthlyIncome"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('monthlyIncome')?.invalid && (jobInformationForm.get('monthlyIncome')?.dirty || jobInformationForm.get('monthlyIncome')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('monthlyIncome')?.hasError('required')">
+                        <span >El ingreso mensual es  requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Quinta fila -->
+                <div class="sm:col-span-2 sm:col-start-1 ">
+                  <label for="state" class="block text-sm font-medium leading-6 text-gray-900">Provincia <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="state" type="text" name="state" id="state" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('state')?.invalid && (jobInformationForm.get('state')?.dirty || jobInformationForm.get('state')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('state')?.hasError('required')">
+                        <span >La provincia es  requerida.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="city" class="block text-sm font-medium leading-6 text-gray-900">Ciudad <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="city" type="text" name="city" id="city" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('city')?.invalid && (jobInformationForm.get('city')?.dirty || jobInformationForm.get('city')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('city')?.hasError('required')">
+                        <span >La ciudad es  requerida.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="zipcode" class="block text-sm font-medium leading-6 text-gray-900">Codigo postal <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="zipcode" type="text" name="zipcode" id="zipcode"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('zipcode')?.invalid && (jobInformationForm.get('zipcode')?.dirty || jobInformationForm.get('zipcode')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('zipcode')?.hasError('required')">
+                        <span >La codigo postal es  requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Sexta fila -->
+
+                <div class="sm:col-span-2 sm:col-start-1">
+                  <label for="address" class="block text-sm font-medium leading-6 text-gray-900">Dirección <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="address" type="text" name="address" id="address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('address')?.invalid && (jobInformationForm.get('address')?.dirty || jobInformationForm.get('address')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('address')?.hasError('required')">
+                        <span >La direccion es  requerida.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="apartment" class="block text-sm font-medium leading-6 text-gray-900">Piso/Dpto <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="apartment" type="text" name="apartment" id="apartment" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('apartment')?.invalid && (jobInformationForm.get('apartment')?.dirty || jobInformationForm.get('apartment')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('apartment')?.hasError('required')">
+                        <span >El apartamento es  requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">Celular <span class="text-red-600">*</span></label>
+                  <div class="mt-2">
+                    <input formControlName="phone" type="text" name="phone" id="phone" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                    <div *ngIf="jobInformationForm.get('phone')?.invalid && (jobInformationForm.get('phone')?.dirty || jobInformationForm.get('phone')?.touched)" class="text-red-600 text-sm mb-2">
+                      <div class="mt-1" *ngIf="jobInformationForm.get('phone')?.hasError('required')">
+                        <span >El telefono es  requerido.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="flex flex-row justify-between	">
+            <div class="mt-6 flex items-center justify-start gap-x-6">
+
+              <button routerLink="/home/general" type="submit" class="mb-4 bg-blue-500 text-white p-2 mt-2 styleButton text-white violeta font-poppins hover:bg-violet-700 focus:ring-4 focus:outline-none focus:ring-violet-700 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">Atras  <i class="fa-solid fa-arrow-left fa-fade"></i></button>
+
+            </div>
+
+            <div class="mt-6 flex items-center justify-end gap-x-6">
+
+              <button (click)="createJobInformation()"  class="mb-4 bg-blue-500 text-white p-2 mt-2 styleButton text-white violeta font-poppins hover:bg-violet-700 focus:ring-4 focus:outline-none focus:ring-violet-700 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0" [disabled]="!jobInformationForm.valid" type="submit" [ngClass]="{ 'disabled-button': !jobInformationForm.valid }">Continuar  <i class="fa-solid fa-arrow-right fa-fade"></i></button>
+
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
